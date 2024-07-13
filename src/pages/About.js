@@ -2,10 +2,7 @@
 import React, { useEffect } from 'react';
 import { Layout, Typography, Row, Col, Card, Avatar, List, Button } from 'antd';
 import {
-  UserOutlined,
-  TeamOutlined,
   RocketOutlined,
-  EnvironmentOutlined,
   GlobalOutlined,
   BulbOutlined,
   CheckCircleOutlined,
