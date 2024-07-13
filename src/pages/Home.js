@@ -34,7 +34,7 @@ const heroStyle = {
 
 const contentStyle = {
   padding: '80px 10%',
-  background: 'linear-gradient(180deg, #f9f9f9, #ffffff)',
+  background: 'linear-gradient(180deg, #dddddd, #ffffff)',
 };
 
 const cardStyle = {

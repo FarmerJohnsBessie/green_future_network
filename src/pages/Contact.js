@@ -17,7 +17,7 @@ const theme = {
 };
 
 const heroStyle = {
-  minHeight: '60vh',
+  minHeight: '50vh',
   background: `linear-gradient(135deg, ${theme.primaryColor}, ${theme.secondaryColor})`,
   display: 'flex',
   flexDirection: 'column',
