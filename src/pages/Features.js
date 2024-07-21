@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Layout, Typography, Card, Button, Row, Col} from 'antd';
+import {Layout, Typography, Card, Button, Row, Col, Anchor} from 'antd';
 import {ExperimentOutlined, CloudOutlined, BugOutlined, LineChartOutlined, BarChartOutlined} from '@ant-design/icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -9,9 +9,12 @@ import camera from '../static/photos/camera.jpg';
 import lightSensor from '../static/photos/light-sensor.jpg';
 import soilMoistureSensor from '../static/photos/soil-moisture-sensor.jpg';
 import tempHumiditySensor from '../static/photos/temp-humidity-sensor.jpg';
+import goodLeaf from '../static/photos/good.jpg';
+import badLeaf from '../static/photos/bad.jpg';
 
 const {Content} = Layout;
 const {Title, Paragraph} = Typography;
+const {Link} = Anchor;
 
 // Updated color scheme
 const theme = {
@@ -131,11 +134,43 @@ const StyledButton = styled(Button)`
     }
 `;
 
+const AISection = styled(SensorSection)`
+    background: #e8f6f3;
+`;
+
+const ImageContainer = styled.div`
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+`;
+
+const StyledList = styled.ul`
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+        margin-bottom: 10px;
+        padding-left: 30px;
+        position: relative;
+
+        &:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: ${theme.primaryColor};
+            font-weight: bold;
+        }
+    }
+`;
+
 const features = [
     {
         title: "Smart Watering System",
         description: "Optimizes water usage based on soil moisture, weather conditions, and plant needs.",
-        icon: <ExperimentOutlined/>
+        icon: <ExperimentOutlined/>,
+        link: "smart-watering"
     },
     {
         title: "Rainwater Management",
@@ -145,7 +180,8 @@ const features = [
     {
         title: "Plant Disease Detection",
         description: "Uses AI to identify early signs of plant diseases and provides treatment recommendations.",
-        icon: <BugOutlined/>
+        icon: <BugOutlined/>,
+        link: "disease-detection"
     },
     {
         title: "Weed Identification",
@@ -155,7 +191,8 @@ const features = [
     {
         title: "Plant Health Monitoring",
         description: "Tracks various factors affecting plant health, including light, temperature, and nutrients.",
-        icon: <LineChartOutlined/>
+        icon: <LineChartOutlined/>,
+        link: "health-monitoring"
     },
     {
         title: "Water Usage Tracking",
@@ -163,6 +200,7 @@ const features = [
         icon: <BarChartOutlined/>
     }
 ];
+
 
 const sensors = [
     {
@@ -219,11 +257,12 @@ const Features = () => {
                             <Col xs={24} sm={12} lg={8} key={index}>
                                 <StyledCard hoverable data-aos="fade-up" data-aos-delay={index * 200}>
                                     <IconWrapper>{feature.icon}</IconWrapper>
-                                    <Title level={3} style={{
-                                        color: theme.secondaryColor,
-                                        textAlign: 'center'
-                                    }}>{feature.title}</Title>
-                                    <Paragraph style={{fontSize: '16px', color: theme.textColor, textAlign: 'center'}}>
+                                        <Title level={3} style={{
+                                            color: theme.secondaryColor,
+                                            textAlign: 'center'
+                                        }}>{feature.title}</Title>
+                                    <Paragraph
+                                        style={{fontSize: '16px', color: theme.textColor, textAlign: 'center'}}>
                                         {feature.description}
                                     </Paragraph>
                                 </StyledCard>
@@ -233,7 +272,7 @@ const Features = () => {
                 </div>
 
                 {/* Sensor Showcase Section */}
-                <SensorSection>
+                <SensorSection id="smart-watering">
                     <div style={{maxWidth: '1200px', margin: '0 auto'}}>
                         <Title level={2} style={{textAlign: 'center', color: theme.primaryColor, marginBottom: '50px'}}>
                             Advanced Sensor Technology
@@ -261,6 +300,72 @@ const Features = () => {
                         ))}
                     </div>
                 </SensorSection>
+
+                <AISection id="disease-detection">
+                    <div style={{maxWidth: '1200px', margin: '0 auto'}}>
+                        <Title level={2} style={{textAlign: 'center', color: theme.primaryColor, marginBottom: '50px'}}>
+                            AI-Powered Plant Health Monitoring
+                        </Title>
+                        <Row gutter={32} style={{marginBottom: '50px'}} data-aos="fade-up">
+                            <Col xs={24} md={12}>
+                                <ImageContainer>
+                                    <img src={badLeaf} alt="Leaf Disease Detection" style={{width: '100%'}}/>
+                                </ImageContainer>
+                            </Col>
+                            <Col xs={24} md={12} style={{display: 'flex', alignItems: 'center'}}>
+                                <div>
+                                    <Title level={3} style={{color: theme.secondaryColor}}>Real-time Leaf Health
+                                        Analysis</Title>
+                                    <Paragraph style={{fontSize: '16px', color: theme.textColor, lineHeight: '1.8'}}>
+                                        Our advanced AI system uses computer vision to analyze leaf health in real-time.
+                                        By detecting subtle changes in leaf color, texture, and shape, it can identify
+                                        early signs of disease, nutrient deficiencies, or pest infestations before they
+                                        become visible to the naked eye.
+                                    </Paragraph>
+                                    <Paragraph style={{fontSize: '16px', color: theme.textColor, lineHeight: '1.8'}}>
+                                        The system can differentiate between healthy and unhealthy parts of the leaf,
+                                        providing precise diagnostics for targeted treatment. This feature helps
+                                        gardeners take proactive measures to maintain plant health and prevent the
+                                        spread of diseases.
+                                    </Paragraph>
+                                </div>
+                            </Col>
+                        </Row>
+
+                        <Row gutter={32} style={{marginBottom: '50px'}} data-aos="fade-up">
+                            <Col xs={24} md={12} order={2}>
+                                <ImageContainer>
+                                    <img src={goodLeaf} alt="Detailed Leaf Analysis" style={{width: '100%'}}/>
+                                </ImageContainer>
+                            </Col>
+                            <Col xs={24} md={12} order={1} style={{display: 'flex', alignItems: 'center'}}>
+                                <div>
+                                    <Title level={3} style={{color: theme.secondaryColor}}>Comprehensive Leaf Health
+                                        Metrics</Title>
+                                    <Paragraph style={{fontSize: '16px', color: theme.textColor, lineHeight: '1.8'}}>
+                                        Our AI doesn't just detect issues – it provides detailed health metrics for each
+                                        leaf. The system analyzes various aspects such as:
+                                    </Paragraph>
+                                    <StyledList>
+                                        <li>Overall leaf health percentage</li>
+                                        <li>Specific areas of concern on the leaf</li>
+                                        <li>Potential causes of leaf damage or discoloration</li>
+                                        <li>Recommendations for treatment or care</li>
+                                    </StyledList>
+                                    <Paragraph style={{
+                                        fontSize: '16px',
+                                        color: theme.textColor,
+                                        lineHeight: '1.8',
+                                        marginTop: '20px'
+                                    }}>
+                                        This granular level of detail allows for precise care tailored to each plant's
+                                        needs, ensuring optimal growth and health throughout your garden.
+                                    </Paragraph>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </AISection>
 
                 {/* Product Demonstration Section */}
                 <VideoSection>

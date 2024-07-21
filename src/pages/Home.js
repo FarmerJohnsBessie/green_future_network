@@ -1,27 +1,17 @@
-import React, {useEffect} from 'react';
-import {Layout, Typography, Row, Col, Card, Button, Statistic, Avatar, List, Timeline} from 'antd';
-import {
-    CloudOutlined,
-    BugOutlined,
-    UserOutlined,
-    DownOutlined,
-    SunOutlined,
-    CameraOutlined,
-    EnvironmentOutlined,
-    TeamOutlined
-} from '@ant-design/icons';
+import React, { useEffect } from 'react';
+import { Layout, Typography, Row, Col, Card, Button, Statistic, Avatar, List, Timeline } from 'antd';
+import { CloudOutlined, BugOutlined, UserOutlined, DownOutlined, SunOutlined, CameraOutlined, EnvironmentOutlined, TeamOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {ReactTyped} from 'react-typed';
 import CountUp from 'react-countup';
-import {useInView} from 'react-intersection-observer';
-import '../css/Home.css';
-import {useNavigate} from "react-router-dom";
-
+import { useInView } from 'react-intersection-observer';
+import { useNavigate } from "react-router-dom";
 import model from '../static/photos/model.jpg';
+import advantageImage from '../static/photos/Advantage.jpg'; // Import the uploaded image
 
-const {Content} = Layout;
-const {Title, Paragraph} = Typography;
+const { Content } = Layout;
+const { Title, Paragraph } = Typography;
 
 const theme = {
     primaryColor: '#2ecc71',
@@ -68,9 +58,7 @@ const buttonStyle = {
     transition: 'all 0.5s ease',
 };
 
-
 const Home = () => {
-
     useEffect(() => {
         AOS.init({
             duration: 1500,
@@ -108,9 +96,9 @@ const Home = () => {
     ];
 
     const impacts = [
-        {icon: UserOutlined, title: "Happy Gardeners", value: 10000, color: theme.primaryColor},
-        {icon: CloudOutlined, title: "Water Saved (Gallons)", value: 500000, color: theme.secondaryColor},
-        {icon: BugOutlined, title: "Plant Diseases Prevented", value: 25000, color: theme.accentColor},
+        { icon: UserOutlined, title: "Happy Gardeners", value: 10000, color: theme.primaryColor },
+        { icon: CloudOutlined, title: "Water Saved (Gallons)", value: 500000, color: theme.secondaryColor },
+        { icon: BugOutlined, title: "Plant Diseases Prevented", value: 25000, color: theme.accentColor },
     ];
 
     const reviews = [
@@ -135,7 +123,7 @@ const Home = () => {
         <Layout>
             <Content>
                 <div style={heroStyle}>
-                    <div className="hero-background"/>
+                    <div className="hero-background" />
                     <div data-aos="fade-up" data-aos-duration="2000">
                         <Title style={{
                             color: theme.lightTextColor,
@@ -182,7 +170,7 @@ const Home = () => {
                             cursor: 'pointer',
                             animation: 'bounce 3s infinite',
                         }}
-                        onClick={() => document.getElementById('content').scrollIntoView({behavior: 'smooth'})}
+                        onClick={() => document.getElementById('content').scrollIntoView({ behavior: 'smooth' })}
                     />
                 </div>
                 <div id="content" style={contentStyle}>
@@ -203,8 +191,8 @@ const Home = () => {
                                     className="feature-card"
                                 >
                                     <feature.icon
-                                        style={{fontSize: '64px', color: theme.primaryColor, marginBottom: '20px'}}/>
-                                    <Title level={3} style={{color: theme.textColor}}>{feature.title}</Title>
+                                        style={{ fontSize: '64px', color: theme.primaryColor, marginBottom: '20px' }} />
+                                    <Title level={3} style={{ color: theme.textColor }}>{feature.title}</Title>
                                     <Paragraph style={{
                                         fontSize: '16px',
                                         color: theme.textColor,
@@ -213,29 +201,6 @@ const Home = () => {
                                 </Card>
                             </Col>
                         ))}
-                    </Row>
-
-                    <Row gutter={[48, 48]} style={{marginTop: '100px'}}>
-                        <Col xs={24} md={12}>
-                            <Title level={2} style={{color: theme.textColor, marginBottom: '40px'}}>How It Works</Title>
-                            <Timeline>
-                                <Timeline.Item color={theme.primaryColor}>Connect Smart Garden to your home
-                                    Wi-Fi</Timeline.Item>
-                                <Timeline.Item color={theme.secondaryColor}>Set up your plants in the mobile
-                                    app</Timeline.Item>
-                                <Timeline.Item color={theme.accentColor}>Let AI monitor and care for your
-                                    plants</Timeline.Item>
-                                <Timeline.Item color={theme.primaryColor}>Enjoy your thriving garden with minimal
-                                    effort</Timeline.Item>
-                            </Timeline>
-                        </Col>
-                        <Col xs={24} md={12}>
-                            <img src={model} alt="Smart Garden in action" style={{
-                                width: '100%',
-                                borderRadius: '20px',
-                                boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
-                            }}/>
-                        </Col>
                     </Row>
 
                     <Title level={2} style={{
@@ -247,7 +212,7 @@ const Home = () => {
                     <Row gutter={[48, 48]}>
                         {impacts.map((stat, index) => {
                             // eslint-disable-next-line react-hooks/rules-of-hooks
-                            const {ref, inView} = useInView({triggerOnce: true});
+                            const { ref, inView } = useInView({ triggerOnce: true });
 
                             return (
                                 <Col xs={24} md={8} key={index}>
@@ -272,9 +237,9 @@ const Home = () => {
                                                 fontSize: '48px',
                                                 fontWeight: 'bold'
                                             }}
-                                            prefix={<stat.icon style={{fontSize: '40px', marginRight: '10px'}}/>}
+                                            prefix={<stat.icon style={{ fontSize: '40px', marginRight: '10px' }} />}
                                             formatter={(value) => (
-                                                <CountUp end={value} separator="," duration={2.5}/>
+                                                <CountUp end={value} separator="," duration={2.5} />
                                             )}
                                         />
                                     </Card>
@@ -283,16 +248,68 @@ const Home = () => {
                         })}
                     </Row>
 
-                    <Row gutter={[48, 48]} style={{marginTop: '100px'}}>
+                    <Row gutter={[48, 48]} style={{ marginTop: '100px' }}>
                         <Col xs={24} md={12}>
-                            <Title level={2} style={{color: theme.textColor, marginBottom: '40px'}}>About Us</Title>
-                            <Paragraph style={{fontSize: '16px', color: theme.textColor}}>
-                                We are a group of passionate high school students committed to creating innovative
-                                solutions for a greener future.
-                                Our Smart Garden project showcases our dedication to combating climate change and
-                                promoting sustainable living.
-                                By combining cutting-edge AI technology with efficient gardening practices, we aim to
-                                make gardening accessible to everyone,
+                            <Title level={2} style={{ color: theme.textColor, marginBottom: '40px' }}>How It Works</Title>
+                            <Timeline>
+                                <Timeline.Item color={theme.primaryColor}>Connect Smart Garden to your home Wi-Fi</Timeline.Item>
+                                <Timeline.Item color={theme.secondaryColor}>Set up your plants in the mobile app</Timeline.Item>
+                                <Timeline.Item color={theme.accentColor}>Let AI monitor and care for your plants</Timeline.Item>
+                                <Timeline.Item color={theme.primaryColor}>Enjoy your thriving garden with minimal effort</Timeline.Item>
+                            </Timeline>
+                        </Col>
+                        <Col xs={24} md={12}>
+                            <img src={model} alt="Smart Garden in action" style={{
+                                width: '100%',
+                                borderRadius: '20px',
+                                boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
+                            }} />
+                        </Col>
+                    </Row>
+
+                    {/* Our Advantage Section */}
+                    <Row gutter={[48, 48]} style={{ marginTop: '100px' }}>
+                        <Col xs={24} md={12}>
+                            <Title level={2} style={{ color: theme.textColor, marginBottom: '40px' }}>Our Advantage</Title>
+                            <Paragraph style={{ fontSize: '16px', color: theme.textColor }}>
+                                Our Smart Garden system stands out with its unique combination of AI technology, eco-friendly practices, and user-friendly design.
+                                Unlike other gardening systems, Gardien provides comprehensive care for your plants, including sunlight detection, moisture level monitoring, rainwater collection, disease identification, and healthy plant detection.
+                                With Gardien, you can effortlessly maintain a thriving garden with minimal effort.
+                            </Paragraph>
+                            <List
+                                itemLayout="horizontal"
+                                dataSource={[
+                                    'AI technology for smart plant care',
+                                    'Eco-friendly and sustainable practices',
+                                    'Comprehensive plant health monitoring',
+                                    'User-friendly and accessible design'
+                                ]}
+                                renderItem={item => (
+                                    <List.Item>
+                                        <List.Item.Meta
+                                            avatar={<CheckCircleOutlined style={{ color: theme.primaryColor, fontSize: '24px' }} />}
+                                            title={<span style={{ color: theme.textColor }}>{item}</span>}
+                                        />
+                                    </List.Item>
+                                )}
+                            />
+                        </Col>
+                        <Col xs={24} md={12}>
+                            <img src={advantageImage} alt="Our Advantage" style={{
+                                width: '100%',
+                                borderRadius: '20px',
+                                boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
+                            }} />
+                        </Col>
+                    </Row>
+
+                    <Row gutter={[48, 48]} style={{ marginTop: '100px' }}>
+                        <Col xs={24} md={12}>
+                            <Title level={2} style={{ color: theme.textColor, marginBottom: '40px' }}>About Us</Title>
+                            <Paragraph style={{ fontSize: '16px', color: theme.textColor }}>
+                                We are a group of passionate high school students committed to creating innovative solutions for a greener future.
+                                Our Smart Garden project showcases our dedication to combating climate change and promoting sustainable living.
+                                By combining cutting-edge AI technology with efficient gardening practices, we aim to make gardening accessible to everyone,
                                 regardless of their experience or time constraints.
                             </Paragraph>
                             <List
@@ -306,9 +323,8 @@ const Home = () => {
                                 renderItem={item => (
                                     <List.Item>
                                         <List.Item.Meta
-                                            avatar={<TeamOutlined
-                                                style={{color: theme.primaryColor, fontSize: '24px'}}/>}
-                                            title={<span style={{color: theme.textColor}}>{item}</span>}
+                                            avatar={<TeamOutlined style={{ color: theme.primaryColor, fontSize: '24px' }} />}
+                                            title={<span style={{ color: theme.textColor }}>{item}</span>}
                                         />
                                     </List.Item>
                                 )}
@@ -319,7 +335,7 @@ const Home = () => {
                                 width: '100%',
                                 borderRadius: '20px',
                                 boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
-                            }}/>
+                            }} />
                         </Col>
                     </Row>
 
@@ -338,8 +354,8 @@ const Home = () => {
                                     data-aos-delay={index * 200}
                                     className="review-card"
                                 >
-                                    <Avatar size={80} src={user.avatar} style={{marginBottom: '20px'}}/>
-                                    <Title level={4} style={{color: theme.textColor}}>{user.name}</Title>
+                                    <Avatar size={80} src={user.avatar} style={{ marginBottom: '20px' }} />
+                                    <Title level={4} style={{ color: theme.textColor }}>{user.name}</Title>
                                     <Paragraph style={{
                                         fontSize: '16px',
                                         color: theme.textColor,
@@ -349,6 +365,7 @@ const Home = () => {
                             </Col>
                         ))}
                     </Row>
+
                 </div>
             </Content>
         </Layout>
