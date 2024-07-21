@@ -35,14 +35,14 @@ const About = () => {
     }, []);
 
     const teamMembers = [
-        { name: 'Alex Johnson', role: 'AI Specialist', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-        { name: 'Sarah Lee', role: 'Environmental Scientist', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
-        { name: 'Michael Chen', role: 'Software Engineer', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-        { name: 'Emily Taylor', role: 'Product Designer', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
-        { name: 'David Brown', role: 'Data Analyst', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
-        { name: 'Lisa Wang', role: 'UX Researcher', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
-        { name: 'James Wilson', role: 'Hardware Engineer', avatar: 'https://randomuser.me/api/portraits/men/7.jpg' },
-        { name: 'Olivia Martinez', role: 'Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/women/8.jpg' },
+        { name: 'Elliott Lascelle ', role: 'CAD Designer/Presentation coordinator', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
+        { name: 'Vicki Nkurunziza', role: 'Outreach & Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
+        { name: 'Naayeli Prakash', role: 'Outreach & Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
+        { name: 'Aaron Sit', role: 'Product Designer', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
+        { name: 'Pranay Ranjan', role: 'Machine Learning Specialist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
+        { name: 'Aniket Sethi', role: 'Machine Learning Specialist', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
+        { name: 'Clement Zhou', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/men/7.jpg' },
+        { name: 'Thomas Tan', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/women/8.jpg' },
     ];
 
     const missionPoints = [
@@ -79,7 +79,7 @@ const About = () => {
                         About Smart Garden
                     </Title>
                     <Paragraph style={{ fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto' }} data-aos="fade-up" data-aos-delay="200">
-                        Revolutionizing home gardening with AI-powered solutions for a sustainable future.
+                        Green power, Pure potential
                     </Paragraph>
                 </div>
 
