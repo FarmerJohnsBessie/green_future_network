@@ -1,6 +1,6 @@
 // src/pages/About.js
-import React, { useEffect } from 'react';
-import { Layout, Typography, Row, Col, Card, Avatar, List, Button } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Layout, Typography, Row, Col, Card, Avatar, List, Button, Popover } from 'antd';
 import {
   RocketOutlined,
   GlobalOutlined,
@@ -35,14 +35,14 @@ const About = () => {
     }, []);
 
     const teamMembers = [
-        { name: 'Elliott Lascelle ', role: 'CAD Designer/Presentation coordinator', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
+        { name: 'Elliott Lascelle ', role: 'Presentation & Design Specialist', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
         { name: 'Vicki Nkurunziza', role: 'Outreach & Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
         { name: 'Naayeli Prakash', role: 'Outreach & Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-        { name: 'Aaron Sit', role: 'Product Designer', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
-        { name: 'Pranay Ranjan', role: 'Machine Learning Specialist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
-        { name: 'Aniket Sethi', role: 'Machine Learning Specialist', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
-        { name: 'Clement Zhou', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/men/91.jpg' },
-        { name: 'Thomas Tan', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/women/8.jpg' },
+        { name: 'Aaron Sit', role: 'Product Designer, CAD', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
+        { name: 'Pranay Ranjan', role: 'Machine Learning & Business Analytics Specialist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
+        { name: 'Aniket Sethi', role: 'Machine Learning & Climate Specialist', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
+        { name: 'Clement Zhou', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/men/85.jpg' },
+        { name: 'Thomas Tan', role: 'Website Specialist*', avatar: 'https://randomuser.me/api/portraits/men/91.jpg' },
     ];
 
     const missionPoints = [
@@ -65,6 +65,23 @@ const About = () => {
         "Leverage AI to optimize resource usage in agriculture",
         "Create a global community of tech-savvy gardeners"
     ];
+
+    const [visible, setVisible] = useState(false);
+
+    const handleMouseEnter = () => {
+        setVisible(true);
+    };
+
+    const handleMouseLeave = () => {
+        setVisible(false);
+    };
+
+    const thomasPopoverContent = (
+        <div>
+            <p>Thomas did nothing and dragged back the team's progress.</p>
+            <p>The team will not be different without him!</p>
+        </div>
+    );
 
     return (
         <Layout>
@@ -211,8 +228,9 @@ const About = () => {
                             >
                                 <Title level={2} style={{ color: theme.accentColor, marginBottom: '20px', textAlign: 'center' }}>Our Team</Title>
                                 <Row gutter={[16, 16]}>
-                                    {teamMembers.map((member, index) => (
-                                        <Col xs={24} sm={12} md={6} key={index} data-aos="zoom-in" data-aos-delay={index * 100}>
+                                    {teamMembers.map((member, index) => {
+                                        const isThomas = member.name === 'Thomas Tan';
+                                        const cardContent = (
                                             <Card
                                                 hoverable
                                                 style={{ textAlign: 'center', borderRadius: '10px' }}
@@ -228,8 +246,21 @@ const About = () => {
                                                 <Title level={4} style={{ marginTop: '16px', marginBottom: '0' }}>{member.name}</Title>
                                                 <Paragraph>{member.role}</Paragraph>
                                             </Card>
-                                        </Col>
-                                    ))}
+                                        );
+                                        return (
+                                            <Col xs={24} sm={12} md={6} key={index} data-aos="zoom-in" data-aos-delay={index * 100}>
+                                                {isThomas ? (
+                                                    <Popover content={thomasPopoverContent} title="Thomas Tan" visible={visible} trigger="hover">
+                                                        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                                            {cardContent}
+                                                        </div>
+                                                    </Popover>
+                                                ) : (
+                                                    cardContent
+                                                )}
+                                            </Col>
+                                        );
+                                    })}
                                 </Row>
                             </Card>
                         </Col>
