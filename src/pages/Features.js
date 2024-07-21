@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Layout, Typography, Card, Button, Row, Col, Anchor} from 'antd';
+import {Layout, Typography, Card, Button, Row, Col} from 'antd';
 import {ExperimentOutlined, CloudOutlined, BugOutlined, LineChartOutlined, BarChartOutlined} from '@ant-design/icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
