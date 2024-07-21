@@ -76,7 +76,7 @@ const About = () => {
                     color: '#fff'
                 }}>
                     <Title level={1} style={{ color: '#fff', fontSize: '4rem', marginBottom: '20px' }} data-aos="fade-up">
-                        About Smart Garden
+                        About Us
                     </Title>
                     <Paragraph style={{ fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto' }} data-aos="fade-up" data-aos-delay="200">
                         Green power, Pure potential

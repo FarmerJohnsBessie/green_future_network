@@ -16,8 +16,11 @@ import {ReactTyped} from 'react-typed';
 import CountUp from 'react-countup';
 import {useInView} from 'react-intersection-observer';
 import '../css/Home.css';
+import {useNavigate} from "react-router-dom";
 
-const {Content, Footer} = Layout;
+import model from '../static/photos/model.jpg';
+
+const {Content} = Layout;
 const {Title, Paragraph} = Typography;
 
 const theme = {
@@ -65,6 +68,7 @@ const buttonStyle = {
     transition: 'all 0.5s ease',
 };
 
+
 const Home = () => {
 
     useEffect(() => {
@@ -74,6 +78,11 @@ const Home = () => {
             easing: 'ease-out-cubic',
         });
     }, []);
+
+    const navigate = useNavigate();
+    const handleButtonClick = () => {
+        navigate('/features');
+    }
 
     const features = [
         {
@@ -134,7 +143,7 @@ const Home = () => {
                             marginBottom: '30px',
                             fontWeight: 'bold'
                         }}>
-                            Welcome to Smart Garden
+                            Welcome to Gardien
                         </Title>
                         <Title level={2} style={{
                             color: theme.lightTextColor,
@@ -159,6 +168,7 @@ const Home = () => {
                             size="large"
                             style={buttonStyle}
                             className="get-started-button"
+                            onClick={handleButtonClick}
                         >
                             Transform Your Garden Now
                         </Button>
@@ -220,7 +230,7 @@ const Home = () => {
                             </Timeline>
                         </Col>
                         <Col xs={24} md={12}>
-                            <img src="https://via.placeholder.com/600x400" alt="Smart Garden in action" style={{
+                            <img src={model} alt="Smart Garden in action" style={{
                                 width: '100%',
                                 borderRadius: '20px',
                                 boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
@@ -341,9 +351,6 @@ const Home = () => {
                     </Row>
                 </div>
             </Content>
-            <Footer style={{textAlign: 'center', background: '#f0f2f5', padding: '20px 0'}}>
-                Smart Garden ©{new Date().getFullYear()} Created by High School Students for a Greener Future
-            </Footer>
         </Layout>
     );
 };
