@@ -41,7 +41,7 @@ const About = () => {
         { name: 'Aaron Sit', role: 'Product Designer', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
         { name: 'Pranay Ranjan', role: 'Machine Learning Specialist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
         { name: 'Aniket Sethi', role: 'Machine Learning Specialist', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
-        { name: 'Clement Zhou', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/men/7.jpg' },
+        { name: 'Clement Zhou', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/men/91.jpg' },
         { name: 'Thomas Tan', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/women/8.jpg' },
     ];
 
