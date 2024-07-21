@@ -14,7 +14,6 @@ import badLeaf from '../static/photos/bad.jpg';
 
 const {Content} = Layout;
 const {Title, Paragraph} = Typography;
-const {Link} = Anchor;
 
 // Updated color scheme
 const theme = {
