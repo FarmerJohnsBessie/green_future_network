@@ -9,6 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import { useNavigate } from "react-router-dom";
 import model from '../static/photos/model.jpg';
 import advantageImage from '../static/photos/Advantage.jpg'; // Import the uploaded image
+import team from '../static/photos/team.JPG'; // Import the uploaded image
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -331,7 +332,7 @@ const Home = () => {
                             />
                         </Col>
                         <Col xs={24} md={12}>
-                            <img src="https://via.placeholder.com/600x400" alt="Our team" style={{
+                            <img src={team} alt="Our team" style={{
                                 width: '100%',
                                 borderRadius: '20px',
                                 boxShadow: '0 15px 35px rgba(0,0,0,0.1)'

@@ -13,6 +13,13 @@ import {
 } from '@ant-design/icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import aniket from '../static/photos/aniket.JPG'
+import arron from '../static/photos/arron.JPG'
+import clement from '../static/photos/clement.JPG'
+import elliott from '../static/photos/elliott.JPG'
+import naayeli from '../static/photos/naayeli.JPG'
+import pranay from '../static/photos/pranay.JPG'
+import vicki from '../static/photos/vicki.JPG'
 // import {theme} from '../theme';
 
 const { Content } = Layout;
@@ -35,13 +42,13 @@ const About = () => {
     }, []);
 
     const teamMembers = [
-        { name: 'Elliott Lascelle ', role: 'Presentation & Design Specialist', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-        { name: 'Vicki Nkurunziza', role: 'Outreach & Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
-        { name: 'Naayeli Prakash', role: 'Outreach & Marketing Specialist', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-        { name: 'Aaron Sit', role: 'Product Designer, CAD', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
-        { name: 'Pranay Ranjan', role: 'Machine Learning & Business Analytics Specialist', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
-        { name: 'Aniket Sethi', role: 'Machine Learning & Climate Specialist', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
-        { name: 'Clement Zhou', role: 'Website Specialist', avatar: 'https://randomuser.me/api/portraits/men/85.jpg' },
+        { name: 'Elliott Lascelle ', role: 'Presentation & Design Specialist', avatar: elliott },
+        { name: 'Vicki Nkurunziza', role: 'Outreach & Marketing Specialist', avatar: vicki },
+        { name: 'Naayeli Prakash', role: 'Outreach & Marketing Specialist', avatar: naayeli },
+        { name: 'Aaron Sit', role: 'Product Designer, CAD', avatar: arron },
+        { name: 'Pranay Ranjan', role: 'Machine Learning & Business Analytics Specialist', avatar: pranay },
+        { name: 'Aniket Sethi', role: 'Machine Learning & Climate Specialist', avatar: aniket },
+        { name: 'Clement Zhou', role: 'Website Specialist', avatar: clement },
         { name: 'Thomas Tan', role: 'Website Specialist*', avatar: 'https://randomuser.me/api/portraits/men/91.jpg' },
     ];
 
