@@ -20,6 +20,7 @@ import elliott from '../static/photos/elliott.JPG'
 import naayeli from '../static/photos/naayeli.JPG'
 import pranay from '../static/photos/pranay.JPG'
 import vicki from '../static/photos/vicki.JPG'
+import thomas from '../static/photos/thomas.jpg'
 // import {theme} from '../theme';
 
 const { Content } = Layout;
@@ -49,7 +50,7 @@ const About = () => {
         { name: 'Pranay Ranjan', role: 'Machine Learning & Business Analytics Specialist', avatar: pranay },
         { name: 'Aniket Sethi', role: 'Machine Learning & Climate Specialist', avatar: aniket },
         { name: 'Clement Zhou', role: 'Website Specialist', avatar: clement },
-        { name: 'Thomas Tan', role: 'Website Specialist*', avatar: 'https://randomuser.me/api/portraits/men/91.jpg' },
+        { name: 'Thomas Tan', role: 'Website Specialist*', avatar: thomas },
     ];
 
     const missionPoints = [
@@ -85,8 +86,9 @@ const About = () => {
 
     const thomasPopoverContent = (
         <div>
-            <p>Thomas did nothing and dragged back the team's progress.</p>
-            <p>The team will not be different without him!</p>
+            <p>"Thomas is a good person" -- Clement</p>
+            {/*<p>Thomas did nothing and dragged back the team's progress.</p>*/}
+            {/*<p>The team will not be different without him!</p>*/}
         </div>
     );
 
